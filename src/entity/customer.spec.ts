@@ -41,4 +41,15 @@ describe('Customer', () => {
 
         expect(() => customer.activate()).toThrow('Address is mandatory to activate customer');
     });
+
+    it('should add reward points to customer', () => {
+        const customer = new Customer('1', 'John Doe');
+        expect(customer.rewardPoints).toBe(0);
+
+        customer.addRewardPoints(100);
+        expect(customer.rewardPoints).toBe(100);
+
+        customer.addRewardPoints(200);
+        expect(customer.rewardPoints).toBe(300);
+    });
 });
